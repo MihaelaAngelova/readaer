@@ -18,11 +18,15 @@ function Login() {
             <p className="title">Login</p>
 
             <form className="App" onSubmit={handleSubmit(onSubmit)}>
+                <label htmlFor="email">Email<span className="mandatory">*</span></label>
                 <input type="email" {...register("email", { required: true })} placeholder="Email" />
                 {errors.email && <span>*Email* is mandatory!</span>}
+                {errors.email && <div className="empty-row"></div>} {/* Empty row after email error message */}
 
+                <label htmlFor="password">Password<span className="mandatory">*</span></label>
                 <input type="password" {...register("password", { required: true })} placeholder="Password" />
                 {errors.password && <span>*Password* is mandatory!</span>}
+                {errors.email && <div className="empty-row"></div>} {/* Empty row after email error message */}
 
                 <input type="submit"value="Login"/>
             </form>
