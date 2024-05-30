@@ -1,7 +1,8 @@
 //LOAD EXPRESS AND CORS
 const express = require("express")
 const cors = require("cors")
-const pool = require("./db")
+const pool = require("./config/db")
+const router = require("./routes/userRoutes")
 
 //SERVER
 const app = express()
@@ -10,25 +11,7 @@ const app = express()
 app.use(express.json()); //interpret json requests
 app.use(cors());
 
-app.post("/register", (req, res) => {
-    const email = req.body["email"]
-    const password = req.body["password"]
+app.use("/", router);
 
-    console.log("Email: " + email);
-    console.log("Password: " + password);
-
-    const insertStatement = `INSERT INTO "readaer_db" (email, password) VALUES ("${email}", "${password}");`
-
-    pool.query(insertStatement).then((response) => {
-        console.log("Data saved");
-        console.log(response);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-
-    console.log(req.body);
-    res.send("Respond received: " + req.body);
-});
-
-app.listen(4000, () => console.log("Server on localhost:4000"));
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log("Server on localhost: 4000"));

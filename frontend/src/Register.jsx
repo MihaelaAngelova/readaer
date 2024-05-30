@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import "./App.css";
 
 function Register() {
@@ -9,10 +11,16 @@ function Register() {
         formState: { errors } 
     } = useForm();
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = async (data) => {
+        try {
+            const response = await axios.post('http://localhost:4000/register', data);
+        } catch (error) {
+            console.error("There was an error registering the user!", error);
+        }
+    };
 
     return (
-        <>
+        <div className="form-container visible">
             <p className="title">Register</p>
 
             <form className="App" onSubmit={handleSubmit(onSubmit)}>
@@ -63,8 +71,8 @@ function Register() {
                 <input type="submit" value="Register" />
             </form>
 
-            <p className="login-text">Already have an account? <a href="/login">Login here</a></p>
-        </>
+            <p className="login-text">Already have an account? <Link to="/login">Login here</Link></p>
+        </div>
     );
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./App.css";
 
 function Login() {
@@ -14,7 +14,7 @@ function Login() {
     const onSubmit = (data) => console.log(data);
 
     return (
-        <>
+        <div className="form-container visible">
             <p className="title">Login</p>
 
             <form className="App" onSubmit={handleSubmit(onSubmit)}>
@@ -31,8 +31,8 @@ function Login() {
                 <input type="submit"value="Login"/>
             </form>
 
-            <p className="login-text">Don't have an account? <a href="/register">Register here</a></p>
-        </>
+            <p className="login-text">Don't have an account? <Link to="/register">Register here</Link></p>
+        </div>
     );
 }
 
