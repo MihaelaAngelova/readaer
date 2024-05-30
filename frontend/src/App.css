@@ -1,0 +1,70 @@
+body {
+    background-color: #f5f5dc; /* Beige background color */
+    font-family: 'Cormorant Garamond', serif;
+    color: #3e2723; /* Dark brown text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #5d4037; /* Darker brown for the title */
+}
+
+.App {
+    background-color: #fbf5e1; /* Light beige background for the form */
+    padding: 20px;
+    border: 1px solid #8d6e63; /* Light brown border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #8d6e63;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+input[type="submit"] {
+    background-color: #d7ccc8; /* Soft brown background */
+    color: #3e2723; /* Dark brown text */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+}
+
+input[type="submit"]:hover {
+    background-color: #a1887f; /* Darker brown on hover */
+}
+
+span {
+    color: red;
+}
+
+.login-text {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.login-text a {
+    text-decoration: underline;
+    color: #5d4037; /* Dark brown for the link */
+}
