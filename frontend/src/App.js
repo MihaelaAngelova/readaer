@@ -1,18 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { UserProvider } from "./UserContext";
 import Register from "./Register";
 import Login from "./Login";
+import Home from "./Home";
 import "./App.css";
 
 function App() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
-            </Routes>
-            
-        </Router>
+        <UserProvider>
+            <Router>
+                <Routes>
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/" element={<Home />} />
+                </Routes>
+            </Router>
+        </UserProvider>
     );
 }
 
